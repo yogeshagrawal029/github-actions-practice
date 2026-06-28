@@ -7,7 +7,10 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return render_template('index.html')
+    return none
 
+if nne:
+    go
 
 @app.route('/health')
 def health():
