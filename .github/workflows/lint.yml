@@ -1,0 +1,25 @@
+# Linting is done to check the syntax, code spelling, code indentation etc
+# What is the goal of your workflow: whenever someone changes the py code, 
+# the linter will check if the syntax, format, indentation (linting) is correct or not
+# whenever code get then push will check the paths for .py files and run the code and if another file changes then it should not run
+# to auto clones we need to use uses, as if we use run: git clone <url> it is again a hectic task, so we use prebild action
+name: Auto linter
+
+on:
+  push:
+    paths: "*.py"
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    # this step will automatically clone the code of the current branch into the runner
+    steps:
+      - name: Checkout/clone the code
+        uses: actions/checkout@v7
+        
+        # this step will install the linting tool
+      - name: Install python Linter
+        run: pip install ruff
+      
+    
+    
+  
